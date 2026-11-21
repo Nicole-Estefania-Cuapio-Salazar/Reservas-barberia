@@ -1,3 +1,4 @@
+
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
@@ -26,6 +27,7 @@ export default function Navbar() {
 
   return (
     <nav className="flex items-center justify-between px-8 py-4 border-b border-neutral-800 bg-neutral-950">
+
       {/* Logo */}
       <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate('/')}>
         <div className="w-9 h-9 bg-amber-100 rounded-md flex items-center justify-center text-neutral-900 font-bold">
@@ -37,23 +39,23 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Links   <a href="#" className="text-neutral-300 hover:text-white">Servicios</a>*/}
-      <div className="hidden md:flex items-center gap-8 text-sm">
-        <a href="#" className="text-white bg-neutral-800 px-4 py-2 rounded-full">Inicio</a>
-       <button
-              onClick={() => navigate('/servicios')}
-              className="text-neutral-300 hover:text-white"
-            >
-              Servicios
-      </button>
-        <a href="#" className="text-neutral-300 hover:text-white">Productos</a>
-        <a href="#" className="text-neutral-300 hover:text-white">Contacto</a>
       {/* Links de navegación */}
       <div className="hidden md:flex items-center gap-8 text-sm">
-        <Link to="/" className="text-white bg-neutral-800 px-4 py-2 rounded-full">Inicio</Link>
-        <a href="#servicios" className="text-neutral-300 hover:text-white transition-colors">Servicios</a>
-        <a href="#productos" className="text-neutral-300 hover:text-white transition-colors">Productos</a>
-        <a href="#contacto" className="text-neutral-300 hover:text-white transition-colors">Contacto</a>
+        <Link to="/" className="text-white bg-neutral-800 px-4 py-2 rounded-full">
+          Inicio
+        </Link>
+        <Link
+            to="/servicios"
+            className="text-neutral-300 hover:text-white transition-colors"
+          >
+            Servicios
+        </Link>
+        <a href="#productos" className="text-neutral-300 hover:text-white transition-colors">
+          Productos
+        </a>
+        <a href="#contacto" className="text-neutral-300 hover:text-white transition-colors">
+          Contacto
+        </a>
       </div>
 
       {/* Sección Derecha (Login / Nombre de usuario + Agendar) */}
@@ -61,22 +63,22 @@ export default function Navbar() {
         {/* Botón de Iniciar Sesión o Nombre del Cliente */}
         {session ? (
           <div className="flex items-center gap-3">
-            <button 
+            <button
               onClick={handleAuthClick}
               className="text-amber-400 border border-amber-400/40 hover:bg-amber-400/10 px-3 py-1.5 rounded-md text-sm font-medium transition-colors flex items-center gap-2"
             >
               <span>👤</span>
               <span>{userName}</span>
             </button>
-            <button 
-              onClick={logout} 
+            <button
+              onClick={logout}
               className="text-neutral-400 hover:text-red-400 text-xs underline"
             >
               Salir
             </button>
           </div>
         ) : (
-          <button 
+          <button
             onClick={() => navigate('/login')}
             className="text-neutral-300 hover:text-white text-sm px-3 py-1.5 rounded-md border border-neutral-700 hover:border-neutral-500 transition-colors"
           >
@@ -84,8 +86,8 @@ export default function Navbar() {
           </button>
         )}
 
-        <button 
-          onClick={() => navigate('/booking')} 
+        <button
+          onClick={() => navigate('/booking')}
           className="bg-white hover:bg-neutral-200 text-neutral-900 text-sm font-semibold px-4 py-2 rounded-md transition-colors"
         >
           AGENDAR CITA
